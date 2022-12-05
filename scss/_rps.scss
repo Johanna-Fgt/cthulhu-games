@@ -1,0 +1,44 @@
+@use './variables' as var;
+@use './mixins' as mxn;
+
+.rps-container {
+    --gap: 3rem;
+    --img-size: 150px;
+    @include mxn.flex(column, var(--gap));
+    .rps-game-container {
+        @include mxn.flex(row, var(--gap));
+        .rps-cards-container {
+            @include mxn.flex(column, 2rem);
+            width: 30%;
+        }
+        .rps-match-container {
+            @include mxn.flex(column, 2rem);
+            flex: 1 0;
+            .rps-match-content {
+                @include mxn.flex(row, var(--gap));
+            }
+        }
+        .adaptive-img-cover{
+            width: var(--img-size);
+            height: var(--img-size);
+            cursor: pointer;
+            @include mxn.shaking;
+        }
+    } 
+    @media (max-width: 680px) {
+        --gap: 4rem;
+        --img-size: 80px;
+        @include mxn.flex(column, var(--gap));
+        .rps-game-container {
+            @include mxn.flex(column, var(--gap));
+            .rps-cards-container {
+                @include mxn.flex(row, 2rem);
+                width: 100%;
+            }
+            .adaptive-img-cover{
+                width: var(--img-size);
+                height: var(--img-size);
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@use './variables' as var;
+@use './mixins' as mxn;
+
+.ttt-game-container {
+    --cards-width: 150px;
+    --gap: 2rem;
+    max-width: calc(var(--cards-width) * 3 + var(--gap) * 2);
+    max-height: calc(var(--cards-width) * 3 + var(--gap) * 2);
+    @include mxn.flex(row, var(--gap));
+    flex-wrap: wrap;
+    .adaptive-img-cover {
+        width: var(--cards-width);
+        height: var(--cards-width);
+        box-shadow: inset 0px 1px 9px 0px aliceblue;
+        border-radius: 5px;
+        padding: 4rem;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        &:hover {
+            box-shadow: inset 0px 1px 9px 0px var.$color-green;
+        }
+
+    }
+    .img-none {
+        background-image: none;
+    }
+}

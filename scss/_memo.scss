@@ -1,0 +1,95 @@
+@use './mixins' as mxn;
+@use './variables' as var;
+
+.memory-game {
+    --card-width: 140px;
+    --card-height: 180px;
+    --gap: 2rem;
+    @include mxn.flex(column, 3rem);
+    min-width: calc(var(--card-width) * 2 + var(--gap));
+    max-width: calc(var(--card-width) * 6 + var(--gap) * 5);
+    .legend {
+        font-family: var.$font-handwritten;
+        font-size: var.$font-size-subtitle;
+        color: aliceblue;
+        a{
+            @include mxn.linkColor(aliceblue, bold);
+        }
+    }
+    .grid {
+        @include mxn.flex(row, var(--gap));
+        flex-wrap: wrap;
+        .adaptive-img-contain {
+            width: var(--card-width);
+            height: var(--card-height);
+        }
+    }
+    .score {
+        @include mxn.flex(row, var(--gap));
+        justify-content: space-between;
+        padding: 0 2rem;
+        position: relative;
+        button {
+            background: transparent;
+            .adaptive-img-cover {
+                width: 32px;
+                height: 32px;
+                @include mxn.shaking;
+            }
+        }
+        .hide-menu {
+            display: none;
+        }
+        #levelMenu {
+            position: absolute;
+            top: 58px;
+            right: 16px;
+            z-index: 2;
+            background-color: var.$color-dark;
+            padding: 2rem 4rem;
+            line-height: var.$line-height;
+            border-radius: 5px;
+            box-shadow: inset 0px 1px 9px 0px aliceblue;
+            transition: all 400ms ease-in-out;
+            &:hover {
+                color: var.$color-green;
+                box-shadow: inset 0px 1px 9px 0px var.$color-green;
+               }
+            input {
+                display: none;
+            }
+            input:checked + label {
+                appearance: none;
+                color: var.$color-green;
+            }
+            label {
+                cursor: pointer;
+                transition: all 400ms ease-in-out;
+               &:hover {
+                color: aliceblue;
+               }
+            }
+
+        }
+    }
+    
+    @media (max-width:980px) {
+        --card-width: 100px;
+        --card-height: 140px;
+        --gap: 1rem;
+    }
+    @media (max-width:690px) {
+        --card-width: 160px;
+        --card-height: 200px;
+        --gap: 1rem;
+    }
+    @media (max-width:550px) {
+        --card-width: 120px;
+        --card-height: 160px;
+        --gap: 1rem;
+    }
+    @media (max-width:480px) {
+        --card-width: 140px;
+        --card-height: 180px;
+    }
+}

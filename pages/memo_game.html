@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Memory Game</title>
+		<link rel="icon" href="../assets/icons/monster.png" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<script src="../scripts/index.js"></script>
+		<script src="../scripts/memo_game.js"></script>
+		<script src="../scripts/matrix.js"></script>
+	</head>
+	<body>
+		<div class="body">
+			<header>
+				<div class="logo">
+					<a href="../index.html"
+						><div class="adaptive-img-cover shaking-logo">
+							<span>
+								<img
+									src="../assets/icons/monster.png"
+									alt="Cthulhu games logo" />
+							</span></div
+					></a>
+					<a href="../index.html">Cthulhu Games</a>
+				</div>
+				<button
+					type="button"
+					class="shaking-logo"
+					id="burger"
+					aria-label="Toggle navigation">
+					<div class="adaptive-img-cover">
+						<span>
+							<img src="../assets/icons/bar.svg" alt="Menu button" />
+						</span>
+					</div>
+					<div class="adaptive-img-cover">
+						<span>
+							<img src="../assets/icons/bar.svg" alt="Menu button" />
+						</span>
+					</div>
+					<div class="adaptive-img-cover">
+						<span>
+							<img src="../assets/icons/bar.svg" alt="Menu button" />
+						</span>
+					</div>
+				</button>
+				<nav id="navbar">
+					<a href="./memo_game.html">Memo Game</a>
+					<a href="./tic_tac_toe.html">Tic Tac Toe</a>
+					<a href="./rps.html">Shi Fu Mi</a>
+					<a href="./magic_ball.html">Magic 8</a>
+					<a href="./bricks_breaker.html">Bricks Breaker</a>
+				</nav>
+			</header>
+			<main>
+				<canvas id="matrix"></canvas>
+				<div class="modal" id="modal"></div>
+				<div class="memory-game" id="memory">
+					<h1>Memory Game</h1>
+					<p class="lead">The rules are simple.</p>
+					<p class="lead">
+						Those monsters came from the dark and cold cosmos to invade our
+						planet a very long time ago. To send them back to oblivion, take
+						over two cards and find those with the same picture. Otherwise the
+						cards face down again. And you get cursed...
+					</p>
+					<div class="score">
+						<h2 class="score-title">Score:<span id="result"></span></h2>
+						<button
+							type="button"
+							aria-label="Toggle levels menu"
+							id="btnLevelMenu">
+							<div class="adaptive-img-cover">
+								<span>
+									<img
+										src="../assets/icons/filter-eyes.png"
+										alt="Settings logo" />
+								</span>
+							</div>
+						</button>
+						<form class="hide-menu" id="levelMenu">
+							<input type="radio" id="easy" name="level" value="easy" checked />
+							<label for="easy">Easy </label><br />
+							<input type="radio" id="medium" name="level" value="medium" />
+							<label for="medium">Medium </label><br />
+							<input type="radio" id="hard" name="level" value="hard" />
+							<label for="hard">Hard</label>
+						</form>
+					</div>
+
+					<div class="grid"></div>
+					<p class="legend">
+						Pictures from
+						<a href="https://www.artstation.com/emptyeyes" target="_blank"
+							>Sandro Fazlinovic</a
+						>
+					</p>
+				</div>
+			</main>
+			<footer>
+				<div class="footer-container">
+					<a href="../index.html"
+						><div class="adaptive-img-cover shaking-logo">
+							<span>
+								<img
+									src="../assets/icons/monster.png"
+									alt="Cthulhu games logo" />
+							</span></div
+					></a>
+					<p>
+						Designed with 🪄 by
+						<a href="https://github.com/Johanna-Fgt" target="_blank"
+							>🧟‍♀️ Johanna-Fgt</a
+						>
+						| 2022
+					</p>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

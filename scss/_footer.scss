@@ -1,0 +1,35 @@
+@use './variables' as var;
+@use './mixins' as mxn;
+
+footer {
+    $color: aliceblue;
+    min-height: 250px;
+    width: 100%;
+    background-color: var.$color-dark;
+    position: relative;
+    font-family: var.$font-handwritten;
+    font-size: var.$font-size-subtitle;
+    color: $color;
+    &:before {
+        content: " ";
+        box-shadow: 0px 20px 20px -20px $color inset;
+        height: 250px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    .footer-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        @include mxn.flex(column, 3rem);
+        justify-content: center;
+        padding: 5rem 0;
+    }
+    a{
+        @include mxn.linkColor($color, bold);
+    }
+}

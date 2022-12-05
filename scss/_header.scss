@@ -1,0 +1,87 @@
+@use './variables' as var;
+@use './mixins' as mxn;
+
+header {
+    --header-height: 15vh;
+    max-width: var.$width-container;
+    min-height: var(--header-height);
+    padding: 0 2rem;
+    @include mxn.flex(row, 0);
+    justify-content: space-between;
+    position: relative;
+    a {
+        @include mxn.linkColor(aliceblue, bold);
+    }
+    .logo {
+        @include mxn.flex(row, 2rem);
+        justify-content: flex-start;
+        flex: 1 0;
+        font-family: var.$font-handwritten;
+        font-size: var.$font-size-title;
+        white-space: nowrap;
+    }
+    button {
+        display: none;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        .adaptive-img-cover {
+            width: 32px;
+            height: 5px;
+            &:first-child {
+                transform: rotate(-15deg);
+                transition: 450ms ease-in-out;   
+            }
+            &:last-child {
+                margin: 4px 0;
+                transform: rotate(-10deg);
+                transition: 300ms ease-in-out; 
+            }
+            &:nth-child(2){
+                display: block;
+                transition: 400ms ease-in-out;
+            }
+        }
+    }
+    nav {
+        @include mxn.flex(row, 2rem);
+        justify-content: flex-end;
+        
+    }
+    @media (max-width: 890px) {
+        .logo {
+            font-size: 3.5rem;
+        }
+        button {
+            display: block;
+        }
+        nav {
+            @include mxn.flex(column, 5rem);
+            height: calc(100vh - var(--header-height)*2);
+            padding: var(--header-height) 0;
+            position: absolute;
+            top: var(--header-height);
+            left: 0;
+            background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+            z-index: 10;
+            transition: 400ms ease-in-out;
+            transform: translateY(-200%);
+        }
+        .open {
+            transform: translateY(0%);
+            transition: 800ms ease-in-out;
+        }
+        .open > div:first-child {
+            margin: 4px 0;
+            transform: rotate(45deg);
+        }
+        .open > div:last-child {
+            margin: 4px 0;
+            transform: rotate(-45deg);
+            transition: 450ms ease-in-out;
+        }
+        .open > div:nth-child(2){
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+@use './variables' as var;
+@use './mixins' as mxn;
+
+.hero {
+    z-index: 5;
+    max-width: 70%;
+    @include mxn.flex(column, 2rem);
+    @include mxn.boxGhost;
+    button {
+        color: aliceblue;
+        font-family: var.$font-handwritten;
+        font-size: var.$font-size-subtitle;
+        padding: 1.5rem;
+        border-radius: 50%;
+        background: var.$color-green;
+        background: radial-gradient(circle, var.$color-green 19%, var.$color-eight-dark 57%);
+        border: inset 8px var.$color-green;
+        transition: all 850ms;
+        &:hover {
+          transform: rotate(1turn);
+          border: outset 8px var.$color-green;
+        }
+        &:active {
+          border: inset 8px var.$color-green;
+        }
+    }
+    .adaptive-img-cover {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.magic-ball {
+    margin-top: -10%;
+    width: 100%;
+    #ball {
+        max-width: 50%;
+        @include mxn.eight-ball;
+        @include mxn.flex(row, 0);
+        @media (max-width: 980px) {
+            max-width: 80%;
+        }
+    }
+    .shaking {
+        @include mxn.shakeTheBall;
+    }
+    p {
+        @include mxn.flex(column, 0);
+        max-height: 250px;
+        min-height: 200px;
+        max-width: 250px;
+        min-width: 150px;
+        margin-left: 1rem;
+        background-image: url('../assets/magic_ball/triangle.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        @include mxn.pulsate(var.$color-eight-text);
+        @media (max-width: 480px) {
+            max-width: 70%;
+        }
+        span {
+            padding-top: 3rem;
+            margin-left: -1rem;
+            width: 50%;
+            text-align: center;
+            font-family: var.$font-eight-text;
+            font-weight: bold;
+            line-height: 2;
+            color: var.$color-eight-text;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px var.$color-eight-text,
+                0 0 82px var.$color-eight-text,
+                0 0 92px var.$color-eight-text,
+                0 0 102px var.$color-eight-text,
+                0 0 151px var.$color-eight-text;
+            @media (max-width: 580px) {
+                max-width: 30%;
+                font-size: calc(var.$font-size-subtitle /1.5);
+            }
+        }
+    }
+}

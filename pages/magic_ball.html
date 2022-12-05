@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Magic 8 Ball</title>
+		<link rel="icon" href="../assets/icons/monster.png" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<script src="../scripts/index.js"></script>
+		<script src="../scripts/magic_ball.js"></script>
+	</head>
+	<body>
+		<div class="body">
+			<header>
+				<div class="logo">
+					<a href="../index.html"
+						><div class="adaptive-img-cover shaking-logo">
+							<span>
+								<img
+									src="../assets/icons/monster.png"
+									alt="Cthulhu games logo" />
+							</span></div
+					></a>
+					<a href="../index.html">Cthulhu Games</a>
+				</div>
+				<button
+					type="button"
+					class="shaking-logo"
+					id="burger"
+					aria-label="Toggle navigation">
+					<div class="adaptive-img-cover">
+						<span>
+							<img src="../assets/icons/bar.svg" alt="Menu button" />
+						</span>
+					</div>
+					<div class="adaptive-img-cover">
+						<span>
+							<img src="../assets/icons/bar.svg" alt="Menu button" />
+						</span>
+					</div>
+					<div class="adaptive-img-cover">
+						<span>
+							<img src="../assets/icons/bar.svg" alt="Menu button" />
+						</span>
+					</div>
+				</button>
+				<nav id="navbar">
+					<a href="./memo_game.html">Memo Game</a>
+					<a href="./tic_tac_toe.html">Tic Tac Toe</a>
+					<a href="./rps.html">Shi Fu Mi</a>
+					<a href="./magic_ball.html">Magic 8</a>
+					<a href="./bricks_breaker.html">Bricks Breaker</a>
+				</nav>
+			</header>
+			<main>
+				<section class="hero">
+					<h1>Ask the Magic Eight Ball if you dare...</h1>
+					<p>
+						" I summon the mighty spirit of the Magic Eight Ball.<br />Lift the
+						veil on the mysteries of universe.<br />I command you to answer my
+						questions! "
+					</p>
+					<button type="button" id="ask">Ask</button>
+				</section>
+				<section class="magic-ball">
+					<div id="ball">
+						<p><span id="answer"></span></p>
+					</div>
+				</section>
+			</main>
+			<footer>
+				<div class="footer-container">
+					<a href="../index.html"
+						><div class="adaptive-img-cover shaking-logo">
+							<span>
+								<img
+									src="../assets/icons/monster.png"
+									alt="Cthulhu games logo" />
+							</span></div
+					></a>
+					<p>
+						Designed with 🪄 by
+						<a href="https://github.com/Johanna-Fgt" target="_blank"
+							>🧟‍♀️ Johanna-Fgt</a
+						>
+						| 2022
+					</p>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
