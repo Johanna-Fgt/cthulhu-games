@@ -14,8 +14,8 @@ const CARDS = [
 	},
 ];
 const BACK_CARDS = {
-	cthulhu: '/assets/rps/white_cthulhu.png',
-	disappear: '/assets/memo_game/disappeared.png',
+	cthulhu: '../assets/rps/white_cthulhu.png',
+	disappear: '../assets/memo_game/disappeared.png',
 };
 const MSG = {
 	draw: `It's a draw`,
