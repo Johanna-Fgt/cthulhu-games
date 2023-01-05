@@ -27,7 +27,6 @@ let cards = ['', '', '', '', '', '', '', '', ''];
 
 window.addEventListener('load', () => {
 	const container = document.querySelector('.ttt-game-container');
-	displayScore();
 	createBoard(container);
 });
 
@@ -64,43 +63,30 @@ const getPlayerCardId = (e) => (cards[e.target.id] = 'X'); //player.cards.push(e
 
 //Computer card
 const createComputerCard = (container) => {
-	let id = getComputerCardId(container);
+	let id = getComputerCardId();
 	cards[id] = 'O';
-	//computer.cards.push(id);
 	displayCard(container.childNodes[id], computer.img);
 	container.childNodes[id].style.pointerEvents = 'none';
 	console.log(cards);
-	//console.log(`Cartes joueur : ${player.cards}`);
-	//console.log(`Computer : ${computer.cards}`);
 };
-const getComputerCardId = (container) => {
+const getComputerCardId = () => {
 	let id = getRndI(0, 9);
 	while (cards[id] != '') {
 		id = getRndI(0, 9);
 	}
 	return id;
-	/*while (
-		container.childNodes[id].style.backgroundImage !== 'none' &&
-		computer.cards.length < 4
-	) {
-		id = getRndI(0, 9);
-	}
-	return id;*/
 };
 
-//display result
-const displayResult = (el, msg) => (el.innerHTML = `${msg}`);
 //display score
-const displayScore = () => {
-	const playerScore = document.getElementById('playerScore');
-	const computerScore = document.getElementById('computerScore');
-	playerScore.innerText = `${player.score}`;
-	computerScore.innerText = `${computer.score}`;
-};
+// const displayScore = () => {
+// 	const playerScore = document.getElementById('playerScore');
+// 	const computerScore = document.getElementById('computerScore');
+// 	playerScore.innerText = `${player.score}`;
+// 	computerScore.innerText = `${computer.score}`;
+// };
 
 //check for win : à chaque click if combo gagnant, à 5 clicks max possibles on donne loose si pas de combo gagnant
 const checkForWin = () => {
-	const resultHtml = document.getElementById('tttResult');
 	for (let i = 0; i < winningCombos.length; i++) {
 		let one = winningCombos[i][0];
 		let two = winningCombos[i][1];
@@ -111,53 +97,32 @@ const checkForWin = () => {
 			cards[two] === cards[three]
 		) {
 			if (cards[one] === 'X') {
-				alert('win');
-				displayResult(resultHtml, MSG.win);
+				displayModal(MSG.win);
 				player.score++;
 			} else {
-				alert('loose');
-				displayResult(resultHtml, MSG.loose);
+				displayModal(MSG.loose);
 				computer.score++;
 			}
-			displayScore();
 			rebootGame();
 		}
 	}
-	/*if (player.cards.length > 2) {
-		let one;
-		let two;
-		let three;
-		let four;
-		let five;
-		for (let i = 0; i < winningCombos.length; i++) {
-			one = winningCombos[i].includes(`${player.cards[0]}`) ? true : false;
-			two = winningCombos[i].includes(`${player.cards[1]}`) ? true : false;
-			three = winningCombos[i].includes(`${player.cards[2]}`) ? true : false;
-			four = winningCombos[i].includes(`${player.cards[3]}`) ? true : false;
-			five = winningCombos[i].includes(`${player.cards[4]}`) ? true : false;
-		}
-
-		if (one || two || three || four || five) {
-			alert('win');
-			displayResult(resultHtml, MSG.win);
-			player.score++;
-		} else {
-			console.log('loose');
-			displayResult(resultHtml, MSG.loose);
-			computer.score++;
-		}
-		// rebootGame();
-	} else {
-		displayResult(resultHtml, MSG.draw);
-	}*/
 };
 
 //reboot
 const rebootGame = () => {
 	cards = ['', '', '', '', '', '', '', '', ''];
-	window.location.reload();
 };
 
-const resetCard = (el) => {
-	el.style.backgroundImage = 'none';
+//Popup
+const displayModal = (msg) => {
+	const modal = document.getElementById('modal');
+	const canvas = document.getElementById('matrix');
+	modal.innerHTML = `${msg} <span>Click anywhere to escape.</span>`;
+	modal.style.display = 'block';
+	canvas.style.display = 'block';
+	window.addEventListener('click', () => {
+		canvas.style.display = 'none';
+		modal.style.display = 'none';
+		window.location.reload();
+	});
 };
