@@ -4,103 +4,103 @@ let cardArray = [];
 const CARDS_EASY = [
 	{
 		name: `monster0`,
-		img: `/assets/memo_game/yog-sothoth.png`,
+		img: `../assets/memo_game/yog-sothoth.png`,
 	},
 	{
 		name: `monster0`,
-		img: `/assets/memo_game/yog-sothoth.png`,
+		img: `../assets/memo_game/yog-sothoth.png`,
 	},
 	{
 		name: `monster1`,
-		img: `/assets/memo_game/yithian.png`,
+		img: `../assets/memo_game/yithian.png`,
 	},
 	{
 		name: `monster1`,
-		img: `/assets/memo_game/yithian.png`,
+		img: `../assets/memo_game/yithian.png`,
 	},
 	{
 		name: `monster2`,
-		img: `/assets/memo_game/cthulhu.png`,
+		img: `../assets/memo_game/cthulhu.png`,
 	},
 	{
 		name: `monster2`,
-		img: `/assets/memo_game/cthulhu.png`,
+		img: `../assets/memo_game/cthulhu.png`,
 	},
 	{
 		name: `monster3`,
-		img: `/assets/memo_game/dagon.png`,
+		img: `../assets/memo_game/dagon.png`,
 	},
 	{
 		name: `monster3`,
-		img: `/assets/memo_game/dagon.png`,
+		img: `../assets/memo_game/dagon.png`,
 	},
 	{
 		name: `monster4`,
-		img: `/assets/memo_game/people-of-innsmouth.png`,
+		img: `../assets/memo_game/people-of-innsmouth.png`,
 	},
 	{
 		name: `monster4`,
-		img: `/assets/memo_game/people-of-innsmouth.png`,
+		img: `../assets/memo_game/people-of-innsmouth.png`,
 	},
 	{
 		name: `monster5`,
-		img: `/assets/memo_game/black-goat.png`,
+		img: `../assets/memo_game/black-goat.png`,
 	},
 	{
 		name: `monster5`,
-		img: `/assets/memo_game/black-goat.png`,
+		img: `../assets/memo_game/black-goat.png`,
 	},
 ];
 const CARDS_MEDIUM = [
 	{
 		name: `monster6`,
-		img: `/assets/memo_game/azathoth.png`,
+		img: `../assets/memo_game/azathoth.png`,
 	},
 	{
 		name: `monster6`,
-		img: `/assets/memo_game/azathoth.png`,
+		img: `../assets/memo_game/azathoth.png`,
 	},
 	{
 		name: `monster7`,
-		img: `/assets/memo_game/deep-ones.png`,
+		img: `../assets/memo_game/deep-ones.png`,
 	},
 	{
 		name: `monster7`,
-		img: `/assets/memo_game/deep-ones.png`,
+		img: `../assets/memo_game/deep-ones.png`,
 	},
 	{
 		name: `monster8`,
-		img: `/assets/memo_game/mi-go.png`,
+		img: `../assets/memo_game/mi-go.png`,
 	},
 	{
 		name: `monster8`,
-		img: `/assets/memo_game/mi-go.png`,
+		img: `../assets/memo_game/mi-go.png`,
 	},
 ];
 const CARDS_HARD = [
 	{
 		name: `monster9`,
-		img: `/assets/memo_game/shoggoth.png`,
+		img: `../assets/memo_game/shoggoth.png`,
 	},
 	{
 		name: `monster9`,
-		img: `/assets/memo_game/shoggoth.png`,
+		img: `../assets/memo_game/shoggoth.png`,
 	},
 	{
 		name: `monster10`,
-		img: `/assets/memo_game/tsathoggua.png`,
+		img: `../assets/memo_game/tsathoggua.png`,
 	},
 	{
 		name: `monster10`,
-		img: `/assets/memo_game/tsathoggua.png`,
+		img: `../assets/memo_game/tsathoggua.png`,
 	},
 	{
 		name: `monster11`,
-		img: `/assets/memo_game/king-in-yellow.png`,
+		img: `../assets/memo_game/king-in-yellow.png`,
 	},
 	{
 		name: `monster11`,
-		img: `/assets/memo_game/king-in-yellow.png`,
+		img: `../assets/memo_game/king-in-yellow.png`,
 	},
 ];
 const chosenCards = {
@@ -164,7 +164,7 @@ const resizeGrid = (grid) => {
 const randomize = () => cardArray.sort(() => 0.5 - Math.random());
 const createCard = (i) => {
 	let card = new Image();
-	card.src = '/assets/memo_game/back.png';
+	card.src = '../assets/memo_game/back.png';
 	card.id = i;
 	return card;
 };
@@ -189,7 +189,7 @@ const flipcard = (e, gridHtml) => {
 	let cardImg = e.target.attributes.src.value;
 	let cardId = e.target.attributes.id.value;
 	//flip the cards only if not already in cardsWon
-	if (cardImg === '/assets/memo_game/back.png') {
+	if (cardImg === '../assets/memo_game/back.png') {
 		//store the chosen card id / name
 		chosenCards.id.push(cardId);
 		chosenCards.name.push(cardArray[cardId].name);
@@ -215,8 +215,8 @@ const removeBoard = () => {
 
 //flip cards
 const makeDisappear = (card) =>
-	(card.src = '/assets/memo_game/disappeared.png');
-const flipBack = (card) => (card.src = '/assets/memo_game/back.png');
+	(card.src = '../assets/memo_game/disappeared.png');
+const flipBack = (card) => (card.src = '../assets/memo_game/back.png');
 
 //EndGame
 const checkForMatch = (gridHtml) => {
